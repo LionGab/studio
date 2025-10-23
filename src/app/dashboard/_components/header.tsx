@@ -1,26 +1,12 @@
 import Link from 'next/link';
 import {
   Bell,
-  Home,
   Menu,
-  Package2,
   Search,
-  Users,
-  ShoppingBag,
-  Clapperboard,
-  MessagesSquare,
-  Gem,
 } from 'lucide-react';
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -30,77 +16,13 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Input } from '@/components/ui/input';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Icons } from '@/components/icons';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export function Header({ title }: { title: string }) {
   const userAvatar = PlaceHolderImages.find(p => p.id === 'avatar-1');
 
   return (
-    <header className="flex h-14 items-center gap-4 border-b bg-card px-4 lg:h-[60px] lg:px-6">
-      <Sheet>
-        <SheetTrigger asChild>
-          <Button variant="outline" size="icon" className="shrink-0 md:hidden">
-            <Menu className="h-5 w-5" />
-            <span className="sr-only">Abrir menu de navegação</span>
-          </Button>
-        </SheetTrigger>
-        <SheetContent side="left" className="flex flex-col">
-          <nav className="grid gap-2 text-lg font-medium">
-            <Link
-              href="/dashboard"
-              className="flex items-center gap-2 text-lg font-semibold"
-            >
-              <Icons.logo className="h-6 w-6" />
-              <span className="font-headline text-xl">ClubNath</span>
-            </Link>
-            <Link
-              href="/dashboard"
-              className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
-            >
-              <Home className="h-5 w-5" />
-              Início
-            </Link>
-            <Link
-              href="/dashboard/matches"
-              className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
-            >
-              <Users className="h-5 w-5" />
-              Conexões
-            </Link>
-            <Link
-              href="/dashboard/marketplace"
-              className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
-            >
-              <ShoppingBag className="h-5 w-5" />
-              Marketplace
-            </Link>
-            <Link
-              href="/dashboard/content"
-              className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
-            >
-              <Clapperboard className="h-5 w-5" />
-              Conteúdo
-            </Link>
-            <Link
-              href="/dashboard/forum"
-              className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
-            >
-              <MessagesSquare className="h-5 w-5" />
-              Fórum
-            </Link>
-            <Link
-              href="/dashboard/pricing"
-              className="mx-[-0.65rem] flex items-center gap-4 rounded-xl bg-muted px-3 py-2 text-foreground hover:text-foreground"
-            >
-              <Gem className="h-5 w-5" />
-              Nossos Planos
-            </Link>
-          </nav>
-        </SheetContent>
-      </Sheet>
-
+    <header className="flex h-16 items-center gap-4 border-b bg-card px-4 lg:px-6 sticky top-0 z-40">
       <div className="w-full flex-1">
         <h1 className="font-headline text-2xl font-semibold">{title}</h1>
       </div>
