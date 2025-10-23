@@ -9,7 +9,7 @@ const navItems = [
   { href: '/dashboard', icon: Home, label: 'Início' },
   { href: '/dashboard/matches', icon: Users, label: 'Conexões' },
   { href: '/dashboard/content', icon: Clapperboard, label: 'Conteúdo' },
-  { href: '/dashboard/marketplace', icon: ShoppingBag, label: 'Loja' },
+  { href: '/dashboard/loja', icon: ShoppingBag, label: 'Loja' },
   { href: '/dashboard/forum', icon: MessagesSquare, label: 'Fórum' },
 ];
 

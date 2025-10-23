@@ -6,7 +6,7 @@ import { BottomNav } from '@/app/dashboard/_components/bottom-nav';
 const pageTitles: { [key: string]: string } = {
   '/dashboard': 'Início',
   '/dashboard/matches': 'Conexões de Fé',
-  '/dashboard/marketplace': 'Marketplace da Comunidade',
+  '/dashboard/loja': 'Loja ClubNath',
   '/dashboard/content': 'Conteúdo Exclusivo',
   '/dashboard/forum': 'Fórum de Apoio',
   '/dashboard/pricing': 'Nosso Plano',

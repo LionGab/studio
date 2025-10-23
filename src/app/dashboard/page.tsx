@@ -50,19 +50,19 @@ export default function Dashboard() {
         </Card>
         <Card className="flex flex-col">
           <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-sm font-medium">No Marketplace</CardTitle>
+            <CardTitle className="text-sm font-medium">Na Loja ClubNath</CardTitle>
             <ShoppingBag className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">12+</div>
             <p className="text-xs text-muted-foreground">
-              Itens novos adicionados hoje.
+              Itens novos e produtos exclusivos.
             </p>
           </CardContent>
            <CardFooter className="mt-auto">
             <Button className="w-full" asChild>
-                <Link href="/dashboard/marketplace">
-                    Explorar Marketplace
+                <Link href="/dashboard/loja">
+                    Explorar Loja
                     <ArrowUpRight className="ml-2 h-4 w-4" />
                 </Link>
             </Button>
