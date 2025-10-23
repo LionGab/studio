@@ -1,40 +1,47 @@
+
 'use client';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { ContentCard } from './_components/content-card';
-import Image from 'next/image';
-import { Button } from '@/components/ui/button';
-import { Crown, Star } from 'lucide-react';
+import { ArticleCard } from './_components/article-card';
 import { useToast } from '@/hooks/use-toast';
 
-const videoContent = [
+const articles = [
   {
-    title: "Dicas para o Sono do Bebê",
-    description: "Aprenda a criar uma rotina de sono saudável.",
+    title: "Como lidar com a culpa materna: 5 dicas práticas",
+    description: "Aprenda a reconhecer e a lidar com um dos sentimentos mais comuns na maternidade.",
     image: PlaceHolderImages.find(p => p.id === 'content-1')!,
+    category: "Autoajuda"
   },
   {
-    title: "Nutrição Pós-Parto",
-    description: "O que comer para se recuperar e ter energia.",
-    image: PlaceHolderImages.find(p => p.id === 'content-2')!,
+    title: "A importância da rede de apoio no pós-parto",
+    description: "Entenda por que ter pessoas por perto faz toda a diferença nessa fase.",
+    image: PlaceHolderImages.find(p => p.id === 'feature-matches')!,
+    category: "Comunidade"
   },
   {
-    title: "Introdução Alimentar",
-    description: "Os primeiros alimentos do seu bebê.",
+    title: "Introdução Alimentar: mitos e verdades",
+    description: "Navegue pela fase dos primeiros alimentos do seu bebê com mais segurança e tranquilidade.",
     image: PlaceHolderImages.find(p => p.id === 'content-3')!,
+    category: "Criação de Filhos"
   },
-];
-
-const liveContent = [
     {
-        title: "Q&A sobre Amamentação",
-        description: "Tire suas dúvidas ao vivo com uma especialista.",
-        image: PlaceHolderImages.find(p => p.id === 'content-4')!,
-        isLive: true,
-    }
-]
-
-const vipImage = PlaceHolderImages.find(p => p.id === 'vip-content')!;
+    title: "Encontrando a fé na jornada materna",
+    description: "Como a espiritualidade pode ser uma fonte de força e paz durante os desafios da maternidade.",
+    image: PlaceHolderImages.find(p => p.id === 'hero')!,
+    category: "Fé"
+  },
+   {
+    title: "Sono do bebê: dicas para noites mais tranquilas",
+    description: "Estratégias para ajudar seu bebê (e você) a ter um sono de mais qualidade.",
+    image: PlaceHolderImages.find(p => p.id === 'content-2')!,
+    category: "Criação de Filhos"
+  },
+  {
+    title: "O poder do autocuidado para mães",
+    description: "Lembre-se: para cuidar bem, você precisa estar bem. Pequenos gestos que fazem a diferença.",
+    image: PlaceHolderImages.find(p => p.id === 'avatar-2')!,
+    category: "Bem-estar"
+  }
+];
 
 export default function ContentPage() {
     const { toast } = useToast();
@@ -49,53 +56,11 @@ export default function ContentPage() {
   return (
     <div className="space-y-8">
       <div>
-        <h2 className="font-headline text-2xl font-bold">Próximas Lives</h2>
-        <p className="text-muted-foreground">Participe e interaja com nossos especialistas.</p>
-        <div className="mt-4 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {liveContent.map((item) => (
-            <ContentCard key={item.title} item={item} />
-          ))}
-        </div>
-      </div>
-
-      <Card className="bg-gradient-to-r from-primary/80 to-primary text-primary-foreground overflow-hidden">
-        <div className="grid md:grid-cols-2 items-center">
-            <div className="p-8">
-                <CardHeader className="p-0">
-                    <CardTitle className="font-headline text-3xl flex items-center gap-2">
-                        <Crown/> Acesso VIP
-                    </CardTitle>
-                    <CardDescription className="text-primary-foreground/80 mt-2">
-                        Pergunte diretamente para a Nathália Valente e tenha acesso a eventos exclusivos.
-                    </CardDescription>
-                </CardHeader>
-                <CardContent className="p-0 mt-6">
-                    <p className="font-semibold mb-2">"Qual a melhor forma de lidar com a privação de sono?"</p>
-                    <p className="text-sm text-primary-foreground/80">- Pergunta de uma mãe VIP este mês.</p>
-                    <Button variant="secondary" className="mt-6" size="lg" onClick={handleAction}>Seja VIP</Button>
-                </CardContent>
-            </div>
-            <div className="relative h-64 md:h-full min-h-[250px]">
-                 <Image
-                    src={vipImage.imageUrl}
-                    alt={vipImage.description}
-                    data-ai-hint={vipImage.imageHint}
-                    fill
-                    className="object-cover"
-                 />
-            </div>
-        </div>
-      </Card>
-      
-      <div>
-        <h2 className="font-headline text-2xl font-bold">Nossa Biblioteca</h2>
-        <p className="text-muted-foreground">Assista a qualquer momento.</p>
+        <h2 className="font-headline text-2xl font-bold">Notícias para Você</h2>
+        <p className="text-muted-foreground">Artigos e dicas para sua jornada de mãe.</p>
         <div className="mt-4 grid gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {videoContent.map((item) => (
-            <ContentCard key={item.title} item={item} />
-          ))}
-          {videoContent.map((item) => (
-            <ContentCard key={item.title + '2'} item={{...item, image: PlaceHolderImages.find(p => p.id === 'feature-market')!}} />
+          {articles.map((item) => (
+            <ArticleCard key={item.title} item={item} />
           ))}
         </div>
       </div>
