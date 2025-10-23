@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { PlusCircle, Search, Sparkles, TestTube2, Woman } from 'lucide-react';
+import { PlusCircle, Search, Sparkles, TestTube2, PersonStanding } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import {
@@ -82,7 +82,7 @@ export default function LojaPage() {
                         </CardHeader>
                         <CardContent className="p-0 mt-6">
                             <Button size="lg" onClick={handleAction}>
-                                <Woman className="mr-2"/> Acessar Provador Virtual
+                                <PersonStanding className="mr-2"/> Acessar Provador Virtual
                             </Button>
                         </CardContent>
                     </div>
