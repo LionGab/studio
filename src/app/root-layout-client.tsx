@@ -4,7 +4,7 @@ import { Header } from '@/app/dashboard/_components/header';
 import { BottomNav } from '@/app/dashboard/_components/bottom-nav';
 
 const pageTitles: { [key: string]: string } = {
-  '/dashboard': 'Início',
+  '/dashboard': 'NathIA',
   '/dashboard/matches': 'Conexões de Fé',
   '/dashboard/loja': 'Loja ClubNath',
   '/dashboard/content': 'Conteúdo Exclusivo',

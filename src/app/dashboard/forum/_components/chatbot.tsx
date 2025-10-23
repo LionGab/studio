@@ -66,7 +66,7 @@ export function Chatbot() {
   }, [messages]);
 
   return (
-    <div className="flex h-full max-h-[70vh] flex-col rounded-xl border bg-card">
+    <div className="flex h-full max-h-[calc(100vh-200px)] flex-col rounded-xl border bg-card">
       <div className="flex items-center gap-3 border-b p-4">
         <Avatar className="h-10 w-10 border-2 border-primary">
             {assistantAvatar && <AvatarImage src={assistantAvatar.imageUrl} />}
