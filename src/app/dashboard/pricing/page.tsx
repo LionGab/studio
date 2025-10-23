@@ -1,102 +1,68 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Check } from 'lucide-react';
+import { Check, Star, Heart, Award } from 'lucide-react';
+import { useToast } from '@/hooks/use-toast';
 
-const tiers = [
-  {
-    name: 'Gratuito',
-    price: 'R$0',
-    frequency: '/mês',
-    description: 'Comece a se conectar com a comunidade.',
-    features: [
-      'Matching social limitado',
-      'Acesso ao fórum de suporte',
-      'Acesso ao marketplace (apenas compra)',
-      'Acesso a conteúdos abertos',
-    ],
-    cta: 'Plano Atual',
-    isCurrent: true,
-  },
-  {
-    name: 'Premium',
-    price: 'R$29,90',
-    frequency: '/mês',
-    description: 'Para mães que querem uma jornada mais profunda.',
-    features: [
-      'Matching social ilimitado',
-      'Grupos temáticos (fitness, fé, rotina)',
-      'Diário pessoal para journaling',
-      'Estudos bíblicos guiados',
-      'Vender no marketplace',
-    ],
-    cta: 'Fazer Upgrade',
-    isPopular: true,
-  },
-  {
-    name: 'VIP',
-    price: 'R$79,90',
-    frequency: '/mês',
-    description: 'A experiência completa e mais próxima.',
-    features: [
-      'Todos os benefícios do Premium',
-      '1 pergunta mensal para Nathália Valente',
-      'Acesso a eventos presenciais e mentorias',
-      'Selo de perfil VIP',
-      'Grupo exclusivo com a Nathália',
-    ],
-    cta: 'Seja VIP',
-  },
-];
 
 export default function PricingPage() {
+
   return (
     <div className="flex flex-col items-center">
       <div className="text-center max-w-2xl mx-auto">
         <h1 className="font-headline text-4xl font-bold tracking-tight md:text-5xl">
-          Planos para cada fase da sua jornada
+          Acesso completo à comunidade
         </h1>
         <p className="mt-4 text-lg text-muted-foreground">
-          Escolha o plano que melhor se adapta às suas necessidades e aprofunde sua conexão com a fé e a comunidade.
+          Desbloqueie todos os recursos e aprofunde sua conexão com a fé e a comunidade por um valor acessível.
         </p>
       </div>
 
-      <div className="mt-16 grid grid-cols-1 lg:grid-cols-3 gap-8 w-full max-w-5xl">
-        {tiers.map((tier) => (
-          <Card key={tier.name} className={`flex flex-col ${tier.isPopular ? 'border-primary ring-2 ring-primary shadow-lg' : ''}`}>
-            {tier.isPopular && (
-              <div className="py-2 px-4 bg-primary text-primary-foreground text-center text-sm font-semibold rounded-t-lg">
-                Mais Popular
+      <div className="mt-12 grid grid-cols-1 w-full max-w-md">
+          <Card className="flex flex-col border-primary ring-2 ring-primary shadow-lg">
+            <div className="py-2 px-4 bg-primary text-primary-foreground text-center text-sm font-semibold rounded-t-lg">
+                Plano Premium
               </div>
-            )}
             <CardHeader className="text-center">
-              <CardTitle className="font-headline text-2xl">{tier.name}</CardTitle>
-              <CardDescription>{tier.description}</CardDescription>
+              <CardTitle className="font-headline text-2xl">ClubNath Premium</CardTitle>
+              <CardDescription>A experiência completa para sua jornada.</CardDescription>
             </CardHeader>
             <CardContent className="flex-1">
               <div className="text-center">
-                <span className="text-4xl font-bold">{tier.price}</span>
-                <span className="text-muted-foreground">{tier.frequency}</span>
+                <span className="text-4xl font-bold">R$29,90</span>
+                <span className="text-muted-foreground">/mês</span>
               </div>
               <ul className="mt-8 space-y-4">
-                {tier.features.map((feature) => (
-                  <li key={feature} className="flex items-start">
-                    <Check className="h-5 w-5 text-primary mr-2 shrink-0" />
-                    <span className="text-sm text-muted-foreground">{feature}</span>
+                  <li className="flex items-start">
+                    <Star className="h-5 w-5 text-secondary mr-2 shrink-0" />
+                    <span className="text-sm text-muted-foreground">Matching social ilimitado com IA</span>
                   </li>
-                ))}
+                  <li className="flex items-start">
+                    <Heart className="h-5 w-5 text-secondary mr-2 shrink-0" />
+                    <span className="text-sm text-muted-foreground">Grupos temáticos (fitness, fé, rotina)</span>
+                  </li>
+                   <li className="flex items-start">
+                    <Check className="h-5 w-5 text-secondary mr-2 shrink-0" />
+                    <span className="text-sm text-muted-foreground">Diário pessoal para journaling</span>
+                  </li>
+                  <li className="flex items-start">
+                    <Check className="h-5 w-5 text-secondary mr-2 shrink-0" />
+                    <span className="text-sm text-muted-foreground">Estudos bíblicos guiados</span>
+                  </li>
+                   <li className="flex items-start">
+                    <Award className="h-5 w-5 text-secondary mr-2 shrink-0" />
+                    <span className="text-sm text-muted-foreground">Conteúdo VIP e lives exclusivas</span>
+                  </li>
               </ul>
             </CardContent>
             <CardFooter>
               <Button
                 className="w-full"
-                variant={tier.isCurrent ? 'outline' : 'default'}
-                disabled={tier.isCurrent}
+                size="lg"
               >
-                {tier.cta}
+                Assinar Agora
               </Button>
             </CardFooter>
           </Card>
-        ))}
       </div>
     </div>
   );
