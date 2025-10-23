@@ -28,8 +28,8 @@ export function BottomNav() {
               className={cn(
                 'flex flex-col items-center gap-1 rounded-md p-2 text-sm font-medium transition-colors',
                 isActive
-                  ? 'text-primary'
-                  : 'text-muted-foreground hover:text-primary/80'
+                  ? 'text-accent-foreground'
+                  : 'text-muted-foreground hover:text-accent-foreground/80'
               )}
             >
               <item.icon className="h-6 w-6" />
