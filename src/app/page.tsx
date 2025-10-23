@@ -18,19 +18,19 @@ export default function LandingPage() {
           <Icons.logo className="h-8 w-8 text-primary" />
           <span className="font-headline text-2xl font-bold">ClubNath</span>
         </Link>
-        <nav className="flex items-center gap-4">
+        <nav className="flex items-center gap-2">
           <Button variant="ghost" asChild>
             <Link href="/dashboard">Entrar</Link>
           </Button>
           <Button asChild>
-            <Link href="/dashboard">Junte-se a nós</Link>
+            <Link href="/dashboard/pricing">Junte-se a nós</Link>
           </Button>
         </nav>
       </header>
       <main className="flex-1">
         <section className="bg-card py-20 md:py-32">
           <div className="container mx-auto grid grid-cols-1 items-center gap-12 px-4 md:grid-cols-2">
-            <div className="space-y-6">
+            <div className="space-y-6 text-center md:text-left">
               <h1 className="font-headline text-4xl font-bold tracking-tight md:text-6xl">
                 A comunidade de fé e acolhimento que toda mãe precisa.
               </h1>
@@ -38,7 +38,7 @@ export default function LandingPage() {
                 Conecte-se com outras mães, compre e venda itens de bebê e tenha acesso a conteúdos exclusivos para sua jornada de fé e maternidade.
               </p>
               <Button size="lg" asChild>
-                <Link href="/dashboard">Comece agora</Link>
+                <Link href="/dashboard/pricing">Comece agora</Link>
               </Button>
             </div>
             <div className="relative h-64 w-full overflow-hidden rounded-2xl shadow-xl md:h-[400px]">
@@ -65,8 +65,8 @@ export default function LandingPage() {
             </div>
             <div className="mt-16 grid grid-cols-1 gap-12 md:grid-cols-3">
               <div className="flex flex-col items-center text-center">
-                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-accent/20 text-accent-foreground">
-                  <Users className="h-8 w-8 text-primary" />
+                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-accent text-primary">
+                  <Users className="h-8 w-8" />
                 </div>
                 <h3 className="font-headline mt-6 text-2xl font-semibold">Conexões Reais</h3>
                 <p className="mt-2 text-muted-foreground">
@@ -74,8 +74,8 @@ export default function LandingPage() {
                 </p>
               </div>
               <div className="flex flex-col items-center text-center">
-                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-accent/20 text-accent-foreground">
-                  <ShoppingBag className="h-8 w-8 text-primary" />
+                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-accent text-primary">
+                  <ShoppingBag className="h-8 w-8" />
                 </div>
                 <h3 className="font-headline mt-6 text-2xl font-semibold">Marketplace Seguro</h3>
                 <p className="mt-2 text-muted-foreground">
@@ -83,8 +83,8 @@ export default function LandingPage() {
                 </p>
               </div>
               <div className="flex flex-col items-center text-center">
-                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-accent/20 text-accent-foreground">
-                  <Cross className="h-8 w-8 text-primary" />
+                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-accent text-primary">
+                  <Cross className="h-8 w-8" />
                 </div>
                 <h3 className="font-headline mt-6 text-2xl font-semibold">Comunidade de Fé</h3>
                 <p className="mt-2 text-muted-foreground">

@@ -45,6 +45,7 @@ export function ProfileCard({ match }: ProfileCardProps) {
         </div>
         <div className="mt-4 text-center">
           <div className="flex flex-wrap justify-center gap-2">
+            <Badge variant="secondary" className="font-normal bg-accent text-accent-foreground"><Cross className="mr-1 h-3 w-3" />Fé</Badge>
             {match.interests.map((interest) => (
               <Badge key={interest} variant="secondary" className="font-normal">{interest}</Badge>
             ))}
@@ -54,7 +55,7 @@ export function ProfileCard({ match }: ProfileCardProps) {
       <CardFooter className="flex gap-2 p-4 pt-0">
         <Button variant="outline" className="w-full" onClick={handleAction}>Ver Perfil</Button>
         <Button className="w-full" onClick={handleAction}>
-            <Cross className="mr-2 h-4 w-4" /> Conectar
+            <Heart className="mr-2 h-4 w-4" /> Conectar
         </Button>
       </CardFooter>
     </Card>

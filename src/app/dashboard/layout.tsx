@@ -2,6 +2,8 @@
 import { usePathname } from 'next/navigation';
 import { Header } from './_components/header';
 import { BottomNav } from './_components/bottom-nav';
+import { Icons } from '@/components/icons';
+import Link from 'next/link';
 
 const pageTitles: { [key: string]: string } = {
   '/dashboard': 'Início',
