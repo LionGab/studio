@@ -8,20 +8,20 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { answerCommonQuestions } from '@/ai/flows/answer-common-questions';
 import { cn } from '@/lib/utils';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
+import imageData from '@/lib/placeholder-images.json';
 
 interface Message {
   role: 'user' | 'assistant';
   content: string;
 }
 
+const assistantAvatar = imageData.placeholderImages.find(p => p.id === 'avatar-1');
+
 export function Chatbot() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [isPending, startTransition] = useTransition();
   const scrollAreaRef = useRef<HTMLDivElement>(null);
-
-  const assistantAvatar = PlaceHolderImages.find(p => p.id === 'avatar-1');
 
   const handleSendMessage = (e: React.FormEvent) => {
     e.preventDefault();
