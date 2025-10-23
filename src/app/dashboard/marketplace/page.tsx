@@ -1,3 +1,5 @@
+'use client';
+
 import { PlusCircle, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -10,6 +12,7 @@ import {
 } from '@/components/ui/select';
 import { ProductCard } from './_components/product-card';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { useToast } from '@/hooks/use-toast';
 
 const products = [
   {
@@ -45,6 +48,15 @@ const products = [
 ];
 
 export default function MarketplacePage() {
+    const { toast } = useToast();
+
+    const handleAction = () => {
+        toast({
+            title: 'Funcionalidade em desenvolvimento',
+            description: 'Estamos trabalhando para trazer essa novidade para você em breve!',
+        });
+    }
+
   return (
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
@@ -65,16 +77,16 @@ export default function MarketplacePage() {
                     <SelectItem value="clothing">Roupas</SelectItem>
                 </SelectContent>
             </Select>
-            <Button className="w-full sm:w-auto">
+            <Button className="w-full sm:w-auto" onClick={handleAction}>
                 <PlusCircle className="mr-2 h-4 w-4" />
                 Vender um item
             </Button>
         </div>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        {products.map(p => <ProductCard key={p.title} item={p} />)}
-        {products.map(p => <ProductCard key={p.title + '2'} item={{...p, price: p.price/2}} />)}
-        {products.slice(0,2).map(p => <ProductCard key={p.title + '3'} item={{...p, price: p.price * 1.5}} />)}
+        {products.map(p => <ProductCard key={p.title} item={p} onBuyClick={handleAction} />)}
+        {products.map(p => <ProductCard key={p.title + '2'} item={{...p, price: p.price/2}} onBuyClick={handleAction}/>)}
+        {products.slice(0,2).map(p => <ProductCard key={p.title + '3'} item={{...p, price: p.price * 1.5}} onBuyClick={handleAction} />)}
       </div>
     </div>
   );

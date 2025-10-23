@@ -14,9 +14,10 @@ interface ProductCardProps {
       avatar: ImagePlaceholder;
     };
   };
+  onBuyClick: () => void;
 }
 
-export function ProductCard({ item }: ProductCardProps) {
+export function ProductCard({ item, onBuyClick }: ProductCardProps) {
   return (
     <Card className="overflow-hidden transition-shadow hover:shadow-lg">
       <CardContent className="p-0">
@@ -44,7 +45,7 @@ export function ProductCard({ item }: ProductCardProps) {
         </div>
       </CardContent>
       <CardFooter className="p-4 pt-0">
-        <Button className="w-full">Comprar</Button>
+        <Button className="w-full" onClick={onBuyClick}>Comprar</Button>
       </CardFooter>
     </Card>
   );

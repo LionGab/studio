@@ -1,9 +1,11 @@
+'use client';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { ContentCard } from './_components/content-card';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Crown, Star } from 'lucide-react';
+import { useToast } from '@/hooks/use-toast';
 
 const videoContent = [
   {
@@ -35,6 +37,15 @@ const liveContent = [
 const vipImage = PlaceHolderImages.find(p => p.id === 'vip-content')!;
 
 export default function ContentPage() {
+    const { toast } = useToast();
+
+    const handleAction = () => {
+        toast({
+            title: 'Funcionalidade em desenvolvimento',
+            description: 'Estamos trabalhando para trazer essa novidade para você em breve!',
+        });
+    }
+
   return (
     <div className="space-y-8">
       <div>
@@ -61,7 +72,7 @@ export default function ContentPage() {
                 <CardContent className="p-0 mt-6">
                     <p className="font-semibold mb-2">"Qual a melhor forma de lidar com a privação de sono?"</p>
                     <p className="text-sm text-primary-foreground/80">- Pergunta de uma mãe VIP este mês.</p>
-                    <Button variant="secondary" className="mt-6" size="lg">Seja VIP</Button>
+                    <Button variant="secondary" className="mt-6" size="lg" onClick={handleAction}>Seja VIP</Button>
                 </CardContent>
             </div>
             <div className="relative h-64 md:h-full min-h-[250px]">

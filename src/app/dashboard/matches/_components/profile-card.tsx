@@ -1,7 +1,9 @@
+'use client';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import { useToast } from '@/hooks/use-toast';
 import { Baby, Heart, MapPin } from 'lucide-react';
 
 interface ProfileCardProps {
@@ -15,6 +17,14 @@ interface ProfileCardProps {
 }
 
 export function ProfileCard({ match }: ProfileCardProps) {
+  const { toast } = useToast();
+
+  const handleAction = () => {
+    toast({
+      title: 'Funcionalidade em desenvolvimento',
+      description: 'Estamos trabalhando para trazer essa novidade para você em breve!',
+    });
+  };
   return (
     <Card className="flex flex-col">
       <CardContent className="p-6 flex-1">
@@ -42,8 +52,8 @@ export function ProfileCard({ match }: ProfileCardProps) {
         </div>
       </CardContent>
       <CardFooter className="flex gap-2 p-4 pt-0">
-        <Button variant="outline" className="w-full">Ver Perfil</Button>
-        <Button className="w-full">
+        <Button variant="outline" className="w-full" onClick={handleAction}>Ver Perfil</Button>
+        <Button className="w-full" onClick={handleAction}>
             <Heart className="mr-2 h-4 w-4" /> Conectar
         </Button>
       </CardFooter>
