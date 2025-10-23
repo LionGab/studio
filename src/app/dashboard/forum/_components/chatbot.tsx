@@ -73,8 +73,8 @@ export function Chatbot() {
             <AvatarFallback><Bot size={20} /></AvatarFallback>
         </Avatar>
         <div>
-            <h3 className="font-headline text-lg font-semibold">Fale com a Nath</h3>
-            <p className="text-sm text-muted-foreground">Sua assistente para dúvidas e apoio</p>
+            <h3 className="font-headline text-lg font-semibold">NathIA</h3>
+            <p className="text-sm text-muted-foreground">Sua amiga e mentora virtual</p>
         </div>
       </div>
       <ScrollArea className="flex-1 p-4" ref={scrollAreaRef}>
@@ -86,7 +86,7 @@ export function Chatbot() {
                     <AvatarFallback><Bot size={16} /></AvatarFallback>
                 </Avatar>
                 <div className="grid gap-1 rounded-lg bg-background p-3">
-                    <p>Olá! Sou a Nath, sua assistente virtual. Estou aqui para te apoiar em sua jornada. Como posso te ajudar hoje?</p>
+                    <p>Olá, querida! Sou a NathIA, sua amiga e mentora. Estou aqui para te ouvir, apoiar e caminharmos juntas. Como você está se sentindo hoje?</p>
                 </div>
             </div>
           )}

@@ -93,66 +93,61 @@ export function ForumClient() {
     };
 
     return (
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-            <div className="lg:col-span-2 space-y-6">
-                <Card>
-                    <CardContent className="p-4">
-                        <form onSubmit={handlePostSubmit} className="flex flex-col gap-4">
+        <div className="space-y-6">
+            <Card>
+                <CardContent className="p-4">
+                    <form onSubmit={handlePostSubmit} className="flex flex-col gap-4">
+                        <div className="flex items-start gap-4">
+                            <Avatar>
+                                <AvatarImage src={userAvatar.imageUrl} />
+                                <AvatarFallback>NV</AvatarFallback>
+                            </Avatar>
+                            <Textarea
+                                placeholder="Compartilhe suas dúvidas e experiências..."
+                                value={newPostContent}
+                                onChange={(e) => setNewPostContent(e.target.value)}
+                                rows={3}
+                                disabled={isPending}
+                            />
+                        </div>
+                        <Button type="submit" className="self-end" disabled={isPending || !newPostContent.trim()}>
+                            {isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                            Publicar
+                        </Button>
+                    </form>
+                </CardContent>
+            </Card>
+
+            <div className="space-y-4">
+                {posts.map(post => (
+                    <Card key={post.id}>
+                        <CardContent className="p-4">
                             <div className="flex items-start gap-4">
                                 <Avatar>
-                                    <AvatarImage src={userAvatar.imageUrl} />
-                                    <AvatarFallback>NV</AvatarFallback>
+                                    <AvatarImage src={post.author.avatar} />
+                                    <AvatarFallback>{post.author.name.charAt(0)}</AvatarFallback>
                                 </Avatar>
-                                <Textarea
-                                    placeholder="Compartilhe suas dúvidas e experiências..."
-                                    value={newPostContent}
-                                    onChange={(e) => setNewPostContent(e.target.value)}
-                                    rows={3}
-                                    disabled={isPending}
-                                />
-                            </div>
-                            <Button type="submit" className="self-end" disabled={isPending || !newPostContent.trim()}>
-                                {isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                                Publicar
-                            </Button>
-                        </form>
-                    </CardContent>
-                </Card>
-
-                <div className="space-y-4">
-                    {posts.map(post => (
-                        <Card key={post.id}>
-                            <CardContent className="p-4">
-                                <div className="flex items-start gap-4">
-                                    <Avatar>
-                                        <AvatarImage src={post.author.avatar} />
-                                        <AvatarFallback>{post.author.name.charAt(0)}</AvatarFallback>
-                                    </Avatar>
-                                    <div className="w-full">
-                                        <div className="flex items-center justify-between">
-                                            <p className="font-semibold">{post.author.name}</p>
-                                            <p className="text-xs text-muted-foreground">{post.timestamp}</p>
-                                        </div>
-                                        <p className="mt-2 text-sm">{post.content}</p>
-                                        <div className="mt-4 flex items-center gap-4 text-muted-foreground">
-                                            <Button variant="ghost" size="sm" className="flex items-center gap-1">
-                                                <ThumbsUp className="h-4 w-4" />
-                                                {post.likes}
-                                            </Button>
-                                            <Button variant="ghost" size="sm" className="flex items-center gap-1">
-                                                <MessageSquare className="h-4 w-4" />
-                                                {post.comments}
-                                            </Button>
-                                        </div>
+                                <div className="w-full">
+                                    <div className="flex items-center justify-between">
+                                        <p className="font-semibold">{post.author.name}</p>
+                                        <p className="text-xs text-muted-foreground">{post.timestamp}</p>
+                                    </div>
+                                    <p className="mt-2 text-sm">{post.content}</p>
+                                    <div className="mt-4 flex items-center gap-4 text-muted-foreground">
+                                        <Button variant="ghost" size="sm" className="flex items-center gap-1">
+                                            <ThumbsUp className="h-4 w-4" />
+                                            {post.likes}
+                                        </Button>
+                                        <Button variant="ghost" size="sm" className="flex items-center gap-1">
+                                            <MessageSquare className="h-4 w-4" />
+                                            {post.comments}
+                                        </Button>
                                     </div>
                                 </div>
-                            </CardContent>
-                        </Card>
-                    ))}
-                </div>
-            </div>
-            <div className="lg:col-span-1 lg:sticky top-6">
-                <Chatbot />
+                            </div>
+                        </CardContent>
+                    </Card>
+                ))}
             </div>
         </div>
     );

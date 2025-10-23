@@ -1,9 +1,6 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import { ArrowUpRight, Users, ShoppingBag, Clapperboard } from 'lucide-react';
 
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import {
   Card,
@@ -13,12 +10,9 @@ import {
   CardTitle,
   CardFooter,
 } from '@/components/ui/card';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { Chatbot } from './forum/_components/chatbot';
 
 export default function Dashboard() {
-  const matches = PlaceHolderImages.filter(p => p.id.startsWith('avatar')).slice(1, 4);
-  const products = PlaceHolderImages.filter(p => p.id.startsWith('product')).slice(0, 2);
-  const content = PlaceHolderImages.find(p => p.id === 'content-1');
 
   return (
     <div className="flex-1 space-y-6">
@@ -31,6 +25,8 @@ export default function Dashboard() {
         </div>
       </div>
       
+      <Chatbot />
+
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         <Card className="flex flex-col">
           <CardHeader className="flex flex-row items-center justify-between pb-2">
