@@ -75,9 +75,9 @@ export function MatchesClient() {
           <CardHeader>
             <div className="flex items-center gap-2">
                 <Sparkles className="h-5 w-5 text-primary" />
-                <CardTitle className="font-headline">Encontrar Matches</CardTitle>
+                <CardTitle className="font-headline">Encontrar Conexões</CardTitle>
             </div>
-            <CardDescription>Use a IA para encontrar mães com perfis parecidos com o seu.</CardDescription>
+            <CardDescription>Use a IA para encontrar mães com perfis e interesses em comum.</CardDescription>
           </CardHeader>
           <CardContent>
             <Form {...form}>
@@ -115,7 +115,7 @@ export function MatchesClient() {
                     <FormItem>
                       <FormLabel>Seus interesses</FormLabel>
                       <FormControl>
-                        <Input placeholder="Yoga, Culinária, Parques" {...field} />
+                        <Input placeholder="Fé, Yoga, Culinária" {...field} />
                       </FormControl>
                       <FormDescription>Separe por vírgulas.</FormDescription>
                       <FormMessage />
@@ -124,7 +124,7 @@ export function MatchesClient() {
                 />
                 <Button type="submit" className="w-full" disabled={isPending}>
                   {isPending ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Users className="mr-2 h-4 w-4" />}
-                  Sugerir Matches
+                  Sugerir Conexões
                 </Button>
               </form>
             </Form>

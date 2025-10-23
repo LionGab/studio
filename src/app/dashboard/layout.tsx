@@ -3,8 +3,8 @@ import { usePathname } from 'next/navigation';
 import { Header } from './_components/header';
 
 const pageTitles: { [key: string]: string } = {
-  '/dashboard': 'Dashboard',
-  '/dashboard/matches': 'Encontre novas conexões',
+  '/dashboard': 'Início',
+  '/dashboard/matches': 'Conexões de Fé',
   '/dashboard/marketplace': 'Marketplace da Comunidade',
   '/dashboard/content': 'Conteúdo Exclusivo',
   '/dashboard/forum': 'Fórum de Apoio',
@@ -17,7 +17,7 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
-  const title = pageTitles[pathname] || 'MãeTech Conecta';
+  const title = pageTitles[pathname] || 'ClubNath';
 
   return (
     <div className="flex min-h-screen w-full flex-col">

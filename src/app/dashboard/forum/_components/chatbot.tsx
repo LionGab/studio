@@ -8,6 +8,7 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { answerCommonQuestions } from '@/ai/flows/answer-common-questions';
 import { cn } from '@/lib/utils';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 interface Message {
   role: 'user' | 'assistant';
@@ -19,6 +20,8 @@ export function Chatbot() {
   const [input, setInput] = useState('');
   const [isPending, startTransition] = useTransition();
   const scrollAreaRef = useRef<HTMLDivElement>(null);
+
+  const assistantAvatar = PlaceHolderImages.find(p => p.id === 'avatar-1');
 
   const handleSendMessage = (e: React.FormEvent) => {
     e.preventDefault();
@@ -65,10 +68,13 @@ export function Chatbot() {
   return (
     <div className="flex h-full max-h-[70vh] flex-col rounded-xl border bg-card">
       <div className="flex items-center gap-3 border-b p-4">
-        <Sparkles className="h-6 w-6 text-primary" />
+        <Avatar className="h-10 w-10 border-2 border-primary">
+            {assistantAvatar && <AvatarImage src={assistantAvatar.imageUrl} />}
+            <AvatarFallback><Bot size={20} /></AvatarFallback>
+        </Avatar>
         <div>
-            <h3 className="font-headline text-lg font-semibold">Assistente MãeTech</h3>
-            <p className="text-sm text-muted-foreground">Tire suas dúvidas sobre puerpério e bebês</p>
+            <h3 className="font-headline text-lg font-semibold">Fale com a Nath</h3>
+            <p className="text-sm text-muted-foreground">Sua assistente para dúvidas e apoio</p>
         </div>
       </div>
       <ScrollArea className="flex-1 p-4" ref={scrollAreaRef}>
@@ -76,10 +82,11 @@ export function Chatbot() {
           {messages.length === 0 && (
              <div className="flex items-start gap-4 text-sm">
                 <Avatar className="h-8 w-8 border-2 border-primary">
+                    {assistantAvatar && <AvatarImage src={assistantAvatar.imageUrl} />}
                     <AvatarFallback><Bot size={16} /></AvatarFallback>
                 </Avatar>
                 <div className="grid gap-1 rounded-lg bg-background p-3">
-                    <p>Olá! Sou sua assistente virtual. Como posso ajudar com suas dúvidas sobre maternidade?</p>
+                    <p>Olá! Sou a Nath, sua assistente virtual. Estou aqui para te apoiar em sua jornada. Como posso te ajudar hoje?</p>
                 </div>
             </div>
           )}
@@ -93,6 +100,7 @@ export function Chatbot() {
             >
               {message.role === 'assistant' && (
                 <Avatar className="h-8 w-8 border-2 border-primary">
+                    {assistantAvatar && <AvatarImage src={assistantAvatar.imageUrl} />}
                     <AvatarFallback><Bot size={16} /></AvatarFallback>
                 </Avatar>
               )}

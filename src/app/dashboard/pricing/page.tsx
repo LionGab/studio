@@ -4,13 +4,13 @@ import { Check } from 'lucide-react';
 
 const tiers = [
   {
-    name: 'Free',
+    name: 'Gratuito',
     price: 'R$0',
     frequency: '/mês',
-    description: 'Para começar a se conectar.',
+    description: 'Comece a se conectar com a comunidade.',
     features: [
-      '3 matches por dia',
-      'Postar 3x por semana no fórum',
+      'Matching social limitado',
+      'Acesso ao fórum de suporte',
       'Acesso ao marketplace (apenas compra)',
       'Acesso a conteúdos abertos',
     ],
@@ -21,12 +21,13 @@ const tiers = [
     name: 'Premium',
     price: 'R$29,90',
     frequency: '/mês',
-    description: 'Para mães que querem mais.',
+    description: 'Para mães que querem uma jornada mais profunda.',
     features: [
-      'Matches ilimitados',
-      'Postagens ilimitadas no fórum',
+      'Matching social ilimitado',
+      'Grupos temáticos (fitness, fé, rotina)',
+      'Diário pessoal para journaling',
+      'Estudos bíblicos guiados',
       'Vender no marketplace',
-      'Acesso a vídeos exclusivos',
     ],
     cta: 'Fazer Upgrade',
     isPopular: true,
@@ -35,12 +36,13 @@ const tiers = [
     name: 'VIP',
     price: 'R$79,90',
     frequency: '/mês',
-    description: 'A experiência completa.',
+    description: 'A experiência completa e mais próxima.',
     features: [
       'Todos os benefícios do Premium',
       '1 pergunta mensal para Nathália Valente',
-      'Acesso a eventos presenciais',
+      'Acesso a eventos presenciais e mentorias',
       'Selo de perfil VIP',
+      'Grupo exclusivo com a Nathália',
     ],
     cta: 'Seja VIP',
   },
@@ -54,7 +56,7 @@ export default function PricingPage() {
           Planos para cada fase da sua jornada
         </h1>
         <p className="mt-4 text-lg text-muted-foreground">
-          Escolha o plano que melhor se adapta às suas necessidades e aproveite ao máximo nossa comunidade.
+          Escolha o plano que melhor se adapta às suas necessidades e aprofunde sua conexão com a fé e a comunidade.
         </p>
       </div>
 

@@ -4,7 +4,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
-import { Baby, Heart, MapPin } from 'lucide-react';
+import { Baby, Cross, Heart, MapPin } from 'lucide-react';
 
 interface ProfileCardProps {
     match: {
@@ -54,7 +54,7 @@ export function ProfileCard({ match }: ProfileCardProps) {
       <CardFooter className="flex gap-2 p-4 pt-0">
         <Button variant="outline" className="w-full" onClick={handleAction}>Ver Perfil</Button>
         <Button className="w-full" onClick={handleAction}>
-            <Heart className="mr-2 h-4 w-4" /> Conectar
+            <Cross className="mr-2 h-4 w-4" /> Conectar
         </Button>
       </CardFooter>
     </Card>

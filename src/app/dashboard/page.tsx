@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowUpRight, Heart, ShoppingBag, Clapperboard } from 'lucide-react';
+import { ArrowUpRight, Users, ShoppingBag, Clapperboard } from 'lucide-react';
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
@@ -27,15 +27,15 @@ export default function Dashboard() {
             <h2 className="font-headline text-3xl font-bold tracking-tight">
               Olá, Nathália!
             </h2>
-            <p className="text-muted-foreground">Bem-vinda de volta à sua comunidade.</p>
+            <p className="text-muted-foreground">Bem-vinda de volta à sua comunidade de fé e acolhimento.</p>
         </div>
       </div>
       
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         <Card className="flex flex-col">
           <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-sm font-medium">Novos Matches</CardTitle>
-            <Heart className="h-4 w-4 text-muted-foreground" />
+            <CardTitle className="text-sm font-medium">Novas Conexões</CardTitle>
+            <Users className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">3+</div>
@@ -46,7 +46,7 @@ export default function Dashboard() {
           <CardFooter className="mt-auto">
             <Button className="w-full" asChild>
                 <Link href="/dashboard/matches">
-                    Ver Matches
+                    Ver Conexões
                     <ArrowUpRight className="ml-2 h-4 w-4" />
                 </Link>
             </Button>

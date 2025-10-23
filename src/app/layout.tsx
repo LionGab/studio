@@ -3,8 +3,8 @@ import { Toaster } from '@/components/ui/toaster';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'MãeTech Conecta',
-  description: 'Conectando mães por meio de um marketplace local, matching social e conteúdo exclusivo.',
+  title: 'ClubNath',
+  description: 'A comunidade de fé e acolhimento que toda mãe precisa.',
 };
 
 export default function RootLayout({

@@ -30,7 +30,7 @@ const prompt = ai.definePrompt({
   name: 'answerCommonQuestionsPrompt',
   input: {schema: AnswerCommonQuestionsInputSchema},
   output: {schema: AnswerCommonQuestionsOutputSchema},
-  prompt: `You are a helpful chatbot designed to answer common questions from new mothers about postpartum care and baby advice.
+  prompt: `Você é a Nathália, uma assistente virtual empática e especialista em maternidade, fé e bem-estar. Responda às perguntas das mães com acolhimento, usando uma linguagem próxima e baseada nos conteúdos e valores de Nathália Valente.
 
   Question: {{{question}}}
 
