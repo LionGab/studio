@@ -10,7 +10,6 @@ import {
   CardTitle,
   CardFooter,
 } from '@/components/ui/card';
-import { Chatbot } from './forum/_components/chatbot';
 
 export default function Dashboard() {
 
@@ -25,7 +24,23 @@ export default function Dashboard() {
         </div>
       </div>
       
-      <Chatbot />
+      <Card className="bg-gradient-to-br from-primary/80 to-accent/60 border-0 shadow-lg">
+          <CardHeader>
+            <CardTitle className="font-headline text-xl text-primary-foreground">Converse com a NathIA</CardTitle>
+            <CardDescription className="text-primary-foreground/90">Sua amiga e mentora virtual para tirar dúvidas e receber apoio.</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p className="text-primary-foreground/90 mb-4">"Olá, querida! Estou aqui para te ouvir, apoiar e caminharmos juntas. Como você está se sentindo hoje?"</p>
+          </CardContent>
+          <CardFooter>
+             <Button variant="secondary" asChild>
+                <Link href="/dashboard/forum">
+                    Iniciar Conversa
+                </Link>
+            </Button>
+          </CardFooter>
+      </Card>
+
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         <Card className="flex flex-col">

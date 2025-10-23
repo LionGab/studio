@@ -10,7 +10,6 @@ import { ThumbsUp, MessageSquare, Loader2, AlertTriangle } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { useToast } from '@/hooks/use-toast';
 import { moderateForumContent } from '@/ai/flows/moderate-forum-content';
-import { Chatbot } from './chatbot';
 
 interface Post {
     id: number;
