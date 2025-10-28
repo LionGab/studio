@@ -1,5 +1,20 @@
 
 > web@1.0.0 start
-> echo 'Web app start not implemented yet' --port 9002 --hostname 0.0.0.0
+> next dev --port 9002 --hostname 0.0.0.0
 
-Web app start not implemented yet --port 9002 --hostname 0.0.0.0
+/home/user/studio/apps/web/node_modules/next/dist/server/config.js:800
+            throw new Error(`Configuring Next.js via '${(0, _path.basename)(nonJsPath)}' is not supported. Please replace the file with 'next.config.js' or 'next.config.mjs'.`);
+                  ^
+
+Error: Configuring Next.js via 'next.config.ts' is not supported. Please replace the file with 'next.config.js' or 'next.config.mjs'.
+    at loadConfig (/home/user/studio/apps/web/node_modules/next/dist/server/config.js:800:19)
+    at async Module.nextDev (/home/user/studio/apps/web/node_modules/next/dist/cli/next-dev.js:175:14)
+
+Node.js v20.19.1
+npm error Lifecycle script `start` failed with error:
+npm error code 1
+npm error path /home/user/studio/apps/web
+npm error workspace web@1.0.0
+npm error location /home/user/studio/apps/web
+npm error command failed
+npm error command sh -c next dev --port 9002 --hostname 0.0.0.0
