@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --hostname 0.0.0.0 --port 3000",
-    "build": "echo 'Web app build not implemented yet'",
-    "start": "echo 'Web app start not implemented yet'"
+    "start": "next dev --hostname 0.0.0.0 --port 3000",
+    "build": "echo 'Web app build not implemented yet'"
   }
 }

@@ -10,25 +10,25 @@
     "dev": "expo start"
   },
   "dependencies": {
-    "expo": "~51.0.21",
+    "@react-native-async-storage/async-storage": "1.23.1",
+    "expo": "^54.0.21",
+    "expo-constants": "~16.0.2",
+    "expo-linking": "~6.3.1",
+    "expo-router": "~3.5.18",
     "expo-status-bar": "~1.12.1",
+    "firebase": "^10.12.3",
+    "nativewind": "^2.0.11",
     "react": "18.2.0",
     "react-native": "0.74.3",
-    "expo-router": "~3.5.18",
     "react-native-safe-area-context": "4.10.1",
     "react-native-screens": "3.31.1",
-    "expo-linking": "~6.3.1",
-    "expo-constants": "~16.0.2",
-    "nativewind": "^2.0.11",
-    "zustand": "^4.5.4",
-    "firebase": "^10.12.3",
-    "@react-native-async-storage/async-storage": "1.23.1",
-    "zod": "^3.23.8"
+    "zod": "^3.23.8",
+    "zustand": "^4.5.4"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
-    "tailwindcss": "^3.3.2",
-    "@types/react": "~18.2.45"
+    "@types/react": "~18.2.45",
+    "tailwindcss": "^3.3.2"
   },
   "private": true
 }
