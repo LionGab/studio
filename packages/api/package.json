@@ -1,0 +1,11 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "dependencies": {
+    "firebase": "^10.12.3"
+  },
+  "devDependencies": {
+    "typescript": "^5"
+  }
+}

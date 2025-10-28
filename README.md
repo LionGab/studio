@@ -1,5 +1,24 @@
-co# Firebase Studio
+# MãeTech Conecta - Monorepo
 
-This is a NextJS starter in Firebase Studio.
+Este projeto foi reestruturado para uma arquitetura de monorepo usando Turborepo, com foco em um aplicativo mobile React Native (Expo) e com a capacidade de compartilhar código entre múltiplas plataformas.
 
-To get started, take a look at src/app/page.tsx.
+## Estrutura
+
+- `apps/mobile`: O aplicativo principal feito com Expo e Expo Router.
+- `apps/web`: Futura aplicação web (atualmente um placeholder).
+- `packages/shared`: Lógica de negócio compartilhada (hooks, serviços, tipos, IA).
+- `packages/api`: Configuração de clientes de API (Firebase, etc).
+- `packages/ui`: Componentes de UI reutilizáveis.
+
+## Como Rodar
+
+1. Instale as dependências:
+   ```bash
+   npm install
+   ```
+
+2. Inicie o ambiente de desenvolvimento:
+   ```bash
+   npm run dev
+   ```
+Este comando usará o Turborepo para iniciar o aplicativo Expo.

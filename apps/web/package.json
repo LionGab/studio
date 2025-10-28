@@ -1,0 +1,10 @@
+{
+  "name": "web",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "echo 'Web app dev server not implemented yet'",
+    "build": "echo 'Web app build not implemented yet'",
+    "start": "echo 'Web app start not implemented yet'"
+  }
+}
