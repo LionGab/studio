@@ -4,12 +4,12 @@
 
 @layer base {
   :root {
-    --background: 240 100% 99%;
-    --foreground: 240 10% 3.9%;
-    --card: 240 60% 97%;
-    --card-foreground: 240 10% 3.9%;
-    --popover: 240 60% 97%;
-    --popover-foreground: 240 10% 3.9%;
+    --background: oklch(0.9399 0.0203 345.6985);
+    --foreground: oklch(0.4712 0 0);
+    --card: oklch(0.9498 0.0500 86.8891);
+    --card-foreground: oklch(0.4712 0 0);
+    --popover: oklch(1.0000 0 0);
+    --popover-foreground: oklch(0.4712 0 0);
     --primary: oklch(0.6209 0.1801 348.1385);
     --primary-foreground: oklch(1.0000 0 0);
     --secondary: oklch(0.8095 0.0694 198.1863);
@@ -24,11 +24,22 @@
     --input: oklch(0.9189 0 0);
     --ring: oklch(0.7002 0.1597 350.7532);
     --radius: 0.4rem;
-    --chart-1: 240 60% 94%;
-    --chart-2: 350 87% 93%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
+    --chart-1: oklch(0.7002 0.1597 350.7532);
+    --chart-2: oklch(0.8189 0.0799 212.0892);
+    --chart-3: oklch(0.9195 0.0801 87.6670);
+    --chart-4: oklch(0.7998 0.1110 348.1791);
+    --chart-5: oklch(0.6197 0.1899 353.9091);
+    
+    --shadow-color: 325.78 58.18% 56.86%;
+    --shadow-strength: 50%;
+    --shadow-2xs: 3px 3px 0px 0px hsl(var(--shadow-color) / var(--shadow-strength));
+    --shadow-xs: 3px 3px 0px 0px hsl(var(--shadow-color) / var(--shadow-strength));
+    --shadow-sm: 3px 3px 0px 0px hsl(var(--shadow-color) / 1), 3px 1px 2px -1px hsl(var(--shadow-color) / 1);
+    --shadow: 3px 3px 0px 0px hsl(var(--shadow-color) / 1), 3px 1px 2px -1px hsl(var(--shadow-color) / 1);
+    --shadow-md: 3px 3px 0px 0px hsl(var(--shadow-color) / 1), 3px 2px 4px -1px hsl(var(--shadow-color) / 1);
+    --shadow-lg: 3px 3px 0px 0px hsl(var(--shadow-color) / 1), 3px 4px 6px -1px hsl(var(--shadow-color) / 1);
+    --shadow-xl: 3px 3px 0px 0px hsl(var(--shadow-color) / 1), 3px 8px 10px -1px hsl(var(--shadow-color) / 1);
+    --shadow-2xl: 3px 3px 0px 0px hsl(var(--shadow-color) / 2.5);
   }
 
   .dark {
@@ -51,6 +62,14 @@
     --border: oklch(0.3907 0.0399 242.2181);
     --input: oklch(0.3093 0.0305 232.0027);
     --ring: oklch(0.6998 0.0896 201.8672);
+    --chart-1: oklch(0.6998 0.0896 201.8672);
+    --chart-2: oklch(0.7794 0.0803 4.1330);
+    --chart-3: oklch(0.6699 0.0988 356.9762);
+    --chart-4: oklch(0.4408 0.0702 217.0848);
+    --chart-5: oklch(0.2713 0.0086 255.5780);
+
+    --shadow-color: 206.15 28.06% 27.25%;
+    --shadow-strength: 50%;
   }
 }
 

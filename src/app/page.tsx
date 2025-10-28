@@ -32,7 +32,7 @@ export default function LoginPage() {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-background p-4">
-      <Card className="mx-auto w-full max-w-sm shadow-md">
+      <Card className="mx-auto w-full max-w-sm shadow-md border-2 border-primary/50">
         <CardHeader className="text-center">
             <div className="flex justify-center items-center mb-4">
                 <Icons.logo className="h-12 w-12 text-primary" />
@@ -44,7 +44,7 @@ export default function LoginPage() {
           <form onSubmit={handleLogin} className="grid gap-4">
             <div className="grid gap-2">
               <Label htmlFor="email">Email</Label>
-              <Input id="email" type="email" placeholder="mae@exemplo.com" required />
+              <Input id="email" type="email" placeholder="mae@exemplo.com" required className="shadow-inner"/>
             </div>
             <div className="grid gap-2">
               <div className="flex items-center">
@@ -53,7 +53,7 @@ export default function LoginPage() {
                   Esqueceu sua senha?
                 </Link>
               </div>
-              <Input id="password" type="password" required />
+              <Input id="password" type="password" required className="shadow-inner"/>
             </div>
             <Button type="submit" className="w-full shadow-lg">
               Entrar
