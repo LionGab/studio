@@ -4,26 +4,26 @@
 
 @layer base {
   :root {
-    --background: 240 100% 99%; /* Very Light Lavender */
+    --background: 240 100% 99%;
     --foreground: 240 10% 3.9%;
-    --card: 240 60% 97%; /* Lighter version of Soft Lavender for cards */
+    --card: 240 60% 97%;
     --card-foreground: 240 10% 3.9%;
     --popover: 240 60% 97%;
     --popover-foreground: 240 10% 3.9%;
-    --primary: 240 60% 94%; /* Soft Lavender */
-    --primary-foreground: 240 5.9% 10%;
-    --secondary: 350 87% 93%; /* Pale Rose for secondary actions */
-    --secondary-foreground: 350 60% 40%;
-    --muted: 240 20% 94%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 340 100% 88%; /* Pale Rose as Accent */
-    --accent-foreground: 340 80% 30%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 20% 90%;
-    --input: 240 20% 92%;
-    --ring: 240 60% 85%;
-    --radius: 1rem;
+    --primary: oklch(0.6209 0.1801 348.1385);
+    --primary-foreground: oklch(1.0000 0 0);
+    --secondary: oklch(0.8095 0.0694 198.1863);
+    --secondary-foreground: oklch(0.3211 0 0);
+    --muted: oklch(0.8800 0.0504 212.0952);
+    --muted-foreground: oklch(0.5795 0 0);
+    --accent: oklch(0.9195 0.0801 87.6670);
+    --accent-foreground: oklch(0.3211 0 0);
+    --destructive: oklch(0.7091 0.1697 21.9551);
+    --destructive-foreground: oklch(1.0000 0 0);
+    --border: oklch(0.6209 0.1801 348.1385);
+    --input: oklch(0.9189 0 0);
+    --ring: oklch(0.7002 0.1597 350.7532);
+    --radius: 0.4rem;
     --chart-1: 240 60% 94%;
     --chart-2: 350 87% 93%;
     --chart-3: 197 37% 24%;
@@ -32,25 +32,25 @@
   }
 
   .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 240 10% 10%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 240 50% 30%; /* Darker Soft Lavender */
-    --primary-foreground: 0 0% 98%;
-    --secondary: 350 70% 35%; /* Darker Pale Rose */
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 340 70% 40%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 50% 40%;
+    --background: oklch(0.2497 0.0305 234.1628);
+    --foreground: oklch(0.9306 0.0197 349.0785);
+    --card: oklch(0.2902 0.0299 233.5352);
+    --card-foreground: oklch(0.9306 0.0197 349.0785);
+    --popover: oklch(0.2902 0.0299 233.5352);
+    --popover-foreground: oklch(0.9306 0.0197 349.0785);
+    --primary: oklch(0.9195 0.0801 87.6670);
+    --primary-foreground: oklch(0.2497 0.0305 234.1628);
+    --secondary: oklch(0.7794 0.0803 4.1330);
+    --secondary-foreground: oklch(0.2497 0.0305 234.1628);
+    --muted: oklch(0.2713 0.0086 255.5780);
+    --muted-foreground: oklch(0.7794 0.0803 4.1330);
+    --accent: oklch(0.6699 0.0988 356.9762);
+    --accent-foreground: oklch(0.9306 0.0197 349.0785);
+    --destructive: oklch(0.6702 0.1806 350.3599);
+    --destructive-foreground: oklch(0.2497 0.0305 234.1628);
+    --border: oklch(0.3907 0.0399 242.2181);
+    --input: oklch(0.3093 0.0305 232.0027);
+    --ring: oklch(0.6998 0.0896 201.8672);
   }
 }
 
