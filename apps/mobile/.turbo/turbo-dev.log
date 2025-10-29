@@ -2,4 +2,54 @@
 > mobile@1.0.0 dev
 > expo start
 
-[1G[0K
+[1G[0K[90mStarting project at /home/user/studio/apps/mobile[39m
+[2mStarting Metro Bundler[22m
+
+[1mTypeScript[22m: A [36mtsconfig.json[39m has been auto-generated
+
+[33mThe following packages should be updated for best compatibility with the installed [1mexpo[22m version:[39m
+[33m  [1m@react-native-async-storage/async-storage[22m[36m@[39m[33m[31m1.23.1[39m[33m - expected version: [32m2.2.0[39m[33m[39m
+[33m  [1mexpo-constants[22m[36m@[39m[33m[31m16.0.2[39m[33m - expected version: [32m~18.0.10[39m[33m[39m
+[33m  [1mexpo-linking[22m[36m@[39m[33m[31m6.3.1[39m[33m - expected version: [32m~8.0.8[39m[33m[39m
+[33m  [1mexpo-router[22m[36m@[39m[33m[31m3.5.24[39m[33m - expected version: [32m~6.0.14[39m[33m[39m
+[33m  [1mexpo-status-bar[22m[36m@[39m[33m[31m1.12.1[39m[33m - expected version: [32m~3.0.8[39m[33m[39m
+[33m  [1mreact[22m[36m@[39m[33m[31m18.2.0[39m[33m - expected version: [32m19.1.0[39m[33m[39m
+[33m  [1mreact-native[22m[36m@[39m[33m[31m0.74.3[39m[33m - expected version: [32m0.81.5[39m[33m[39m
+[33m  [1mreact-native-safe-area-context[22m[36m@[39m[33m[31m4.10.1[39m[33m - expected version: [32m~5.6.0[39m[33m[39m
+[33m  [1mreact-native-screens[22m[36m@[39m[33m[31m3.31.1[39m[33m - expected version: [32m~4.16.0[39m[33m[39m
+[33m  [1m@types/react[22m[36m@[39m[33m[31m18.2.79[39m[33m - expected version: [32m~19.1.10[39m[33m[39m
+[33mYour project may not work correctly until you install the expected versions of the packages.[39m
+▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+█ ▄▄▄▄▄ █ ██▀▀ ▀▄██ ▄▄▄▄▄ █
+█ █   █ █  ▀█ ▀█▄▄█ █   █ █
+█ █▄▄▄█ █▀  █▄▀▀▄██ █▄▄▄█ █
+█▄▄▄▄▄▄▄█▄█ ▀▄█▄█ █▄▄▄▄▄▄▄█
+█▄ ▀▀▄ ▄█▀█▄█▄▀▄ ▄▀█ ▀▄▄ ▄█
+█▀▀█▄▄ ▄▄█ ▄█▀█▀▄▀ ▄▀   ▀██
+█ ▀▀▀▀█▄▄ █▀▄▀▄ ▀▄▀▄ ▀▄ ▀██
+███▄▀▄▄▄▀▀▀  ▄ ▄▄▄ ▄██ ▀███
+█▄▄██▄▄▄█   █▄ ▀▄ ▄▄▄ ▀ ▄▄█
+█ ▄▄▄▄▄ █▀▄▄█▀█▀▀ █▄█ ▀▀▀██
+█ █   █ █▄▄▀▄▀▄▄█▄▄ ▄▄▀   █
+█ █▄▄▄█ █▀   ▄ ▄▄▄▄ ▀█▀▀ ██
+█▄▄▄▄▄▄▄█▄▄██▄▄█████▄▄▄▄▄▄█
+
+› Metro waiting on [4mexp://10.88.0.3:8081[24m
+› Scan the QR code above with Expo Go (Android) or the Camera app (iOS)
+
+› Using [36mExpo Go[39m
+› Press [1ms[22m [2m│[22m switch to development build
+
+› Press [1ma[22m [2m│[22m open Android
+[2m› Press [1mw[22m[2m [2m│[22m[2m open web[22m
+
+› Press [1mj[22m [2m│[22m open debugger
+› Press [1mr[22m [2m│[22m reload app
+› Press [1mm[22m [2m│[22m toggle menu
+› [1mshift+m[22m [2m│[22m more tools
+› Press [1mo[22m [2m│[22m open project code in your editor
+
+› Press [1m?[22m [2m│[22m show all commands
+
+Logs for your project will appear below.[2m Press Ctrl+C to exit.[22m
+[33mUnable to resolve asset "./assets/icon.png" from "icon" in your app.json or app.config.js[39m
