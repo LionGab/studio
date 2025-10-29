@@ -1,12 +1,5 @@
 
 > mobile@1.0.0 dev
-> expo start --port 9002 --hostname 0.0.0.0
+> expo start
 
-unknown or unexpected option: --hostname
-npm error Lifecycle script `dev` failed with error:
-npm error code 1
-npm error path /home/user/studio/apps/mobile
-npm error workspace mobile@1.0.0
-npm error location /home/user/studio/apps/mobile
-npm error command failed
-npm error command sh -c expo start --port 9002 --hostname 0.0.0.0
+[1G[0K
