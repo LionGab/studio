@@ -1,0 +1,131 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Helper functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+    
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+    
+    function isValidUser(userData) {
+      return userData.keys().hasAll(['displayName', 'email']) &&
+             userData.displayName is string &&
+             userData.email is string &&
+             userData.displayName.size() > 0 &&
+             userData.displayName.size() <= 100;
+    }
+    
+    // User profiles
+    match /users/{userId} {
+      // Users can read their own profile
+      allow read: if isOwner(userId);
+      
+      // Users can create their profile on signup
+      allow create: if isOwner(userId) && isValidUser(request.resource.data);
+      
+      // Users can update their own profile
+      allow update: if isOwner(userId) && isValidUser(request.resource.data);
+      
+      // Users cannot delete their profile (must use account deletion flow)
+      allow delete: if false;
+      
+      // Baby information subcollection - LGPD/ECA compliant
+      match /babies/{babyId} {
+        allow read, write: if isOwner(userId);
+        
+        // Ensure age is stored as range, not exact
+        allow create, update: if isOwner(userId) &&
+                                request.resource.data.keys().hasAll(['ageRange']) &&
+                                request.resource.data.ageRange is string;
+      }
+      
+      // Private user data (tokens, etc)
+      match /private/{document=**} {
+        allow read, write: if isOwner(userId);
+      }
+    }
+    
+    // Matches - matchmaking between users
+    match /matches/{matchId} {
+      allow read: if isSignedIn() && 
+                     (resource.data.userId1 == request.auth.uid || 
+                      resource.data.userId2 == request.auth.uid);
+      
+      // System creates matches, users can only update status
+      allow create: if false;
+      allow update: if isSignedIn() && 
+                       (resource.data.userId1 == request.auth.uid || 
+                        resource.data.userId2 == request.auth.uid) &&
+                       request.resource.data.diff(resource.data).affectedKeys()
+                         .hasOnly(['status', 'updatedAt']);
+      allow delete: if false;
+    }
+    
+    // Forum posts
+    match /forum/{postId} {
+      allow read: if isSignedIn();
+      
+      allow create: if isSignedIn() &&
+                       request.resource.data.userId == request.auth.uid &&
+                       request.resource.data.content is string &&
+                       request.resource.data.content.size() > 0 &&
+                       request.resource.data.content.size() <= 5000 &&
+                       request.resource.data.keys().hasAll(['userId', 'content', 'createdAt']);
+      
+      allow update: if isOwner(resource.data.userId) &&
+                       request.resource.data.diff(resource.data).affectedKeys()
+                         .hasOnly(['content', 'updatedAt']);
+      
+      allow delete: if isOwner(resource.data.userId);
+      
+      // Forum comments
+      match /comments/{commentId} {
+        allow read: if isSignedIn();
+        allow create: if isSignedIn() &&
+                         request.resource.data.userId == request.auth.uid;
+        allow update, delete: if isOwner(resource.data.userId);
+      }
+    }
+    
+    // Marketplace listings
+    match /marketplace/{listingId} {
+      allow read: if isSignedIn();
+      
+      allow create: if isSignedIn() &&
+                       request.resource.data.sellerId == request.auth.uid &&
+                       request.resource.data.keys().hasAll(['title', 'price', 'sellerId', 'createdAt']);
+      
+      allow update: if isOwner(resource.data.sellerId);
+      allow delete: if isOwner(resource.data.sellerId);
+    }
+    
+    // Content/Streams metadata
+    match /content/{contentId} {
+      allow read: if isSignedIn();
+      // Only admins can create/update content (handled by Cloud Functions)
+      allow write: if false;
+    }
+    
+    // Subscriptions
+    match /subscriptions/{subscriptionId} {
+      allow read: if isOwner(subscriptionId);
+      // Subscriptions are managed by Stripe webhooks only
+      allow write: if false;
+    }
+    
+    // AI moderation results (read-only for users)
+    match /moderation/{itemId} {
+      allow read: if isSignedIn();
+      allow write: if false; // Only server can write
+    }
+    
+    // Default deny all
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

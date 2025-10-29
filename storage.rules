@@ -1,0 +1,64 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    
+    // Helper functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+    
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+    
+    function isImage() {
+      return request.resource.contentType.matches('image/.*');
+    }
+    
+    function isValidSize() {
+      // Max 5MB for images
+      return request.resource.size < 5 * 1024 * 1024;
+    }
+    
+    // User profile images
+    match /users/{userId}/profile/{imageId} {
+      allow read: if isSignedIn();
+      allow write: if isOwner(userId) && isImage() && isValidSize();
+      allow delete: if isOwner(userId);
+    }
+    
+    // User uploaded content (e.g., marketplace item photos)
+    match /users/{userId}/uploads/{allPaths=**} {
+      allow read: if isSignedIn();
+      allow write: if isOwner(userId) && isImage() && isValidSize();
+      allow delete: if isOwner(userId);
+    }
+    
+    // Forum post attachments
+    match /forum/{postId}/attachments/{fileName} {
+      allow read: if isSignedIn();
+      allow write: if isSignedIn() && isImage() && isValidSize();
+      // Allow deletion by authenticated users (post ownership verified in app logic)
+      allow delete: if isSignedIn();
+    }
+    
+    // Marketplace listing images
+    match /marketplace/{listingId}/{imageId} {
+      allow read: if isSignedIn();
+      allow write: if isSignedIn() && isImage() && isValidSize();
+      // Allow deletion by authenticated users (listing ownership verified in app logic)
+      allow delete: if isSignedIn();
+    }
+    
+    // Premium content - only accessible to VIP members
+    match /content/premium/{contentId} {
+      allow read: if false; // Must use signed URLs from backend
+      allow write: if false; // Only backend can write
+    }
+    
+    // Default deny
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}
