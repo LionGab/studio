@@ -124,12 +124,58 @@ export function containsSensitiveData(input: string): boolean {
 
   const sensitivePatterns = [
     /\b\d{3}-\d{2}-\d{4}\b/g, // SSN
-    /\b\d{11}\b/g, // CPF (Brazilian ID)
     /\b\d{3}\.\d{3}\.\d{3}-\d{2}\b/g, // CPF formatted
     /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/gi, // Email
     /\b\d{3}[-.]?\d{3}[-.]?\d{4}\b/g, // Phone numbers
     /\b(?:\d{4}[-\s]?){3}\d{4}\b/g, // Credit card
   ];
 
+  // Check for unformatted CPF (11 digits with valid check digits)
+  if (isValidCPF(input)) {
+    return true;
+  }
+
   return sensitivePatterns.some(pattern => pattern.test(input));
+}
+
+/**
+ * Validates if a string contains a valid Brazilian CPF
+ * CPF has a specific validation algorithm with check digits
+ */
+function isValidCPF(str: string): boolean {
+  // Extract only digits
+  const cpf = str.replace(/\D/g, '');
+  
+  // CPF must have exactly 11 digits
+  if (cpf.length !== 11) {
+    return false;
+  }
+  
+  // Reject known invalid CPFs (all digits the same)
+  if (/^(\d)\1{10}$/.test(cpf)) {
+    return false;
+  }
+  
+  // Validate check digits
+  let sum = 0;
+  let remainder;
+  
+  // Validate first check digit
+  for (let i = 1; i <= 9; i++) {
+    sum += parseInt(cpf.substring(i - 1, i)) * (11 - i);
+  }
+  remainder = (sum * 10) % 11;
+  if (remainder === 10 || remainder === 11) remainder = 0;
+  if (remainder !== parseInt(cpf.substring(9, 10))) return false;
+  
+  // Validate second check digit
+  sum = 0;
+  for (let i = 1; i <= 10; i++) {
+    sum += parseInt(cpf.substring(i - 1, i)) * (12 - i);
+  }
+  remainder = (sum * 10) % 11;
+  if (remainder === 10 || remainder === 11) remainder = 0;
+  if (remainder !== parseInt(cpf.substring(10, 11))) return false;
+  
+  return true;
 }

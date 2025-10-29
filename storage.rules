@@ -38,14 +38,16 @@ service firebase.storage {
     match /forum/{postId}/attachments/{fileName} {
       allow read: if isSignedIn();
       allow write: if isSignedIn() && isImage() && isValidSize();
-      // Only post owner can delete (requires custom logic in app)
+      // Allow deletion by authenticated users (post ownership verified in app logic)
+      allow delete: if isSignedIn();
     }
     
     // Marketplace listing images
     match /marketplace/{listingId}/{imageId} {
       allow read: if isSignedIn();
       allow write: if isSignedIn() && isImage() && isValidSize();
-      // Only listing owner can delete (requires custom logic in app)
+      // Allow deletion by authenticated users (listing ownership verified in app logic)
+      allow delete: if isSignedIn();
     }
     
     // Premium content - only accessible to VIP members
